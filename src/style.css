@@ -54,13 +54,12 @@ main{
 }
 
 .weather-app-temperature-container {
-  display: flex;
-}
-
-.info{
+ 
 display: flex;
 justify-content: space-between;
+
 }
+
  
   
 .icon {
