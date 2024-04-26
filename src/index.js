@@ -19,7 +19,7 @@ function handleSearchSubmit(event) {
   let tempElement = document.querySelector("#temp");
 
   cityElement.textContent = searchInput.value;
-  tempElement.textContent = ""; 
+  tempElement.textContent = searchInput.value; 
   searchCity(searchInput.value);
 }
 
