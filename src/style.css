@@ -56,7 +56,7 @@ main{
 .weather-app-temperature-container {
  
 display: flex;
-justify-content: space-between;
+justify-content: right;
 
 }
 
