@@ -10,12 +10,8 @@ function refresh(response) {
 function searchCity(city) {
   let apikey = "6acodfbfaa832f9t2d0703f439a0aaeb";
   let apiurl = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
-  axios
-    .get(apiurl)
-    .then((response) => refresh(response.data))
-    .catch((error) => console.error("Error fetching data:", error));
+  axios.get(apiUrl).then(refresh);
 }
-
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".input");
