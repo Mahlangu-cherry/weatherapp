@@ -1,8 +1,9 @@
 body{
-    background-color: rgb(245, 139, 218);
+    background-color: rgb(224, 184, 214);
 }
 .header{
-    font-family: ;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }
 
 
