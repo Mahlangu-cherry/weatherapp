@@ -1,10 +1,10 @@
 function refreshWeather(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = response.data.current.temp_c;
+  let tempElement = document.querySelector("#temp");
+  let temp = response.data.current.temp_c;
   let cityElement = document.querySelector("#city");
 
   cityElement.textContent = response.data.location.name;
-  temperatureElement.textContent = Math.round(temperature);
+  tempElement.textContent = Math.round(temp);
 }
 
 function searchCity(city) {
@@ -15,12 +15,12 @@ function searchCity(city) {
 
 function handleSearchSubmit(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input"); 
+  let searchInput = document.querySelector(".input"); 
 
   searchCity(searchInput.value);
 }
 
-let searchFormElement = document.querySelector("#search-form");
+let searchFormElement = document.querySelector("#searchinfo");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
-searchCity("Paris"); 
+searchCity("Johannesburg"); 
