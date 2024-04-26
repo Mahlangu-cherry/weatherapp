@@ -3,8 +3,8 @@ function refresh(response) {
   let temp = response.data.temp.current;
   let cityElement = document.querySelector("#city");
 
-  cityElement.textContent = response.data.city;
-  tempElement.textContent = Math.round(temp);
+  cityElement.innerHTML = response.data.city;
+  tempElement.innerHTML = Math.round(temp);
 }
 
 function searchCity(city) {
