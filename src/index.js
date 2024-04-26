@@ -4,7 +4,7 @@ function refresh(response) {
   let cityElement = document.querySelector("#city");
 
   cityElement.textContent = response.data.location.name;
-  tempElement.textContent = Math.round(temp);
+  tempElement.textContent = Math.round("#temp");
 }
 
 function searchCity(city) {
