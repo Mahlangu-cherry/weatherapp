@@ -4,7 +4,7 @@ function refresh(response) {
   let cityElement = document.querySelector("#city");
 
   cityElement.textContent = response.data.location.name;
-  tempElement.textContent = Math.round("#temp");
+  tempElement.textContent = temp; 
 }
 
 function searchCity(city) {
@@ -20,7 +20,10 @@ function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".input");
   let cityElement = document.querySelector("#city");
+  let tempElement = document.querySelector("#temp");
+
   cityElement.textContent = searchInput.value;
+  tempElement.textContent = ""; 
   searchCity(searchInput.value);
 }
 
