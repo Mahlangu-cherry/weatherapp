@@ -37,14 +37,14 @@ main{
 }
 
 .info{
-  display: flex;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .weather-app-temperature-container {
- 
+color: #f65282;
 display: flex;
 justify-content: right;
-
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
   
 .icon {
