@@ -38,7 +38,6 @@ main{
 
 .info{
   display: flex;
-  justify-content: space-between;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .weather-app-temperature-container {
