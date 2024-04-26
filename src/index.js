@@ -1,27 +1,26 @@
-function refresh(response) {
-  let tempElement = document.querySelector("#temp");
-  let temp = response.data.current.temp_c;
+function refreshWeather(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = response.data.current.temp_c;
   let cityElement = document.querySelector("#city");
 
   cityElement.textContent = response.data.location.name;
-  tempElement.textContent = temp; 
+  temperatureElement.textContent = Math.round(temperature);
 }
 
 function searchCity(city) {
-  let apikey = "6acodfbfaa832f9t2d0703f439a0aaeb";
-  let apiurl = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
-  axios.get(apiUrl).then(refresh);
+  let apiKey = "6acodfbfaa832f9t2d0703f439a0aaeb"; 
+  let apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+  axios.get(apiUrl).then(refreshWeather); 
 }
+
 function handleSearchSubmit(event) {
   event.preventDefault();
-  let searchInput = document.querySelector(".input");
-  let cityElement = document.querySelector("#city");
-  let tempElement = document.querySelector("#temp");
+  let searchInput = document.querySelector("#search-form-input"); 
 
-  cityElement.textContent = searchInput.value;
-  tempElement.textContent = searchInput.value; 
   searchCity(searchInput.value);
 }
 
-let searchForm = document.querySelector("#searchform");
-searchForm.addEventListener("submit", handleSearchSubmit);
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Paris"); 
