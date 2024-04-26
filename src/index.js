@@ -9,15 +9,17 @@ function refreshWeather(response) {
 
 function searchCity(city) {
   let apiKey = "6acodfbfaa832f9t2d0703f439a0aaeb"; 
-  let apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`; // Updated API URL
+  let apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".input");
-  let cityElement = document.querySelector("#city");
-  cityElement.textContent = searchInput.value;
+  let city = searchInput.value.trim(); 
+  if (city !== "") {
+    searchCity(city);
+  }
 }
 
 let searchForm = document.querySelector("#searchform");
