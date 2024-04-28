@@ -4,7 +4,7 @@ function refreshWeather(response) {
   let cityElement = document.querySelector("#city");
 
   cityElement.textContent = response.data.city;
-  temperatureElement.textContent = response.data.temperature;
+  temperatureElement.textContent = (temperature);
 }
 
 function searchCity(city) {
