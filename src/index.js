@@ -14,8 +14,7 @@ async function searchCity(city) {
   let apiKey = "6acodfbfaa832f9t2d0703f439a0aaeb";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  //The await makes sure that the data is fetched before it continues
-  //Then the try catch makes sure if the city is not found an error is thrown to the user
+
   try {
     await axios.get(apiUrl).then(refreshWeather);
   } catch {
