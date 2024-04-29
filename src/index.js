@@ -22,7 +22,7 @@ function refreshWeather(response) {
   );
 
   
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" alt="Weather Icon" />`;
+  iconElement.textContent = `<img src="${response.data.condition.icon_url}" class="icon" alt="Weather Icon" />`;
 }
 
 function formatDate(date) {
@@ -51,10 +51,8 @@ async function searchCity(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
   try {
-    const response = await axios.get(apiUrl);
-    refreshWeather(response.data);
-  } catch (error) {
-    console.error("Error fetching weather data:", error);
+    await axios.get(apiUrl).then(refreshWeather);
+  } catch {
     alert("City not found");
   }
 }
