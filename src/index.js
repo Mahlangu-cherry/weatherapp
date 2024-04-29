@@ -1,18 +1,20 @@
 function refreshWeather(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windSpeedElement = document.querySelector("#wind-speed");
-  let timeElement = document.querySelector("#time");
-  let date = new Date(response.data.time * 1000);
   
-  timeElement.textContent = formatDate(date);
-  descriptionElement.textContent = response.data.condition.description;
-  humidityElement.textContent = `${response.data.temperature.humidity}%`;
-  windSpeedElement.textContent = `${response.data.wind.speed}km/h`;
-  temperatureElement.textContent = Math.round(temperature);
-  temperatureElement.textContent = Math.ceil(response.data.temperature.current);
+let temperatureElement = document.querySelector("#temperature");
+let descriptionElement = document.querySelector("#description");
+let humidityElement = document.querySelector("#humidity");
+let windSpeedElement = document.querySelector("#wind-speed");
+let timeElement = document.querySelector("#time");
+let date = new Date(response.data.time * 1000);
+
+timeElement.textContent = formatDate(date);
+descriptionElement.textContent = response.data.condition.description;
+humidityElement.textContent = `${response.data.temperature.humidity}%`;
+windSpeedElement.textContent = `${response.data.wind.speed}km/h`;
+temperatureElement.textContent = Math.round(temperature);
+temperatureElement.textContent = Math.ceil(response.data.temperature.current);
 }
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -33,11 +35,11 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
-
 async function searchCity(city) {
   let apiKey = "6acodfbfaa832f9t2d0703f439a0aaeb";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
+  
   try {
     await axios.get(apiUrl).then(refreshWeather);
   } catch {
@@ -51,8 +53,10 @@ function handleSearchSubmit(event) {
   let cityElement = document.querySelector("#city");
   cityElement.textContent = searchInput.value;
 
+  
   searchCity(searchInput.value);
 
+  
   document.getElementById("searchInput").value = "";
   document.getElementById("search-form").reset();
 }
