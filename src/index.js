@@ -12,7 +12,7 @@ let iconElement = document.querySelector("#icon");
   descriptionElement.textContent = response.data.condition.description;
   humidityElement.textContent = `${response.data.temperature.humidity}%`;
   windSpeedElement.textContent = `${response.data.wind.speed}km/h`;
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`;
+  iconElement.textContent = `<img src="${response.data.condition.icon_url}" class="icon" />`;
   temperatureElement.textContent = Math.round(temperature);
   temperatureElement.textContent = Math.ceil(response.data.temperature.current);
 
