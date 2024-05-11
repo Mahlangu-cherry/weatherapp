@@ -53,7 +53,15 @@ function handleSearchSubmit(event) {
   let cityElement = document.querySelector("#city");
   cityElement.textContent = searchInput.value;
 
-  function displayForecast() {
+  function getForecast(city) {
+    let apiKey = "6acodfbfaa832f9t2d0703f439a0aaeb";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios(apiUrl).then(displayForecast);
+  }
+
+  function displayForecast(response) {
+    console.log(response.data);
+
     let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
     let forecastHtml = "";
 
